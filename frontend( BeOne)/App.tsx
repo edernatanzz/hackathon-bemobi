@@ -14,7 +14,9 @@ interface TabBarIconProps {
 const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-     <Homepages/>
+      <Homepages/>
+      <Text>Profile Screen</Text>
+      <Text>Profile Screen</Text>
     </View>
   );
 };
@@ -51,7 +53,7 @@ const LibraryScreen: React.FC = () => {
   );
 };
 
-// Função para renderizar o ícone da aba
+
 const TabBarIcon: React.FC<TabBarIconProps> = ({ focused, routeName }) => {
   let iconSource;
 
