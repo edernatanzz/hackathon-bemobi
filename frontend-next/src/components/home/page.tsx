@@ -1,4 +1,5 @@
- import Assinaturas from "@/components/homeAssinaturas"
+'use client'
+import Assinaturas from "@/components/homeAssinaturas"
 import React from "react"
 import styled from "styled-components"
 
