@@ -3,6 +3,7 @@ import { StyleSheet, View, Image, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
+import Homepages from './components/home/home';
 
 interface TabBarIconProps {
   focused: boolean;
@@ -13,7 +14,7 @@ interface TabBarIconProps {
 const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
+      <Homepages/>
       <Text>Profile Screen</Text>
       <Text>Profile Screen</Text>
     </View>
