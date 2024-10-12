@@ -3,7 +3,6 @@ import { StyleSheet, View, Image, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
-import Homepages from './components/home/home';
 
 interface TabBarIconProps {
   focused: boolean;
@@ -14,7 +13,9 @@ interface TabBarIconProps {
 const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-     <Homepages/>
+      <Text>Home Screen</Text>
+      <Text>Profile Screen</Text>
+      <Text>Profile Screen</Text>
     </View>
   );
 };
@@ -51,7 +52,7 @@ const LibraryScreen: React.FC = () => {
   );
 };
 
-// Função para renderizar o ícone da aba
+
 const TabBarIcon: React.FC<TabBarIconProps> = ({ focused, routeName }) => {
   let iconSource;
 
