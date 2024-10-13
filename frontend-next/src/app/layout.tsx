@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/footer";
 import TagHeader from "@/components/header";
 import styled from "styled-components";
+import StyledComponentsRegistry from "./registry";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,6 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
+      <StyledComponentsRegistry> 
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -44,6 +46,8 @@ export default function RootLayout({
           <Footer /> 
         </PageWrapper>
       </body>
+      </StyledComponentsRegistry>
+
     </html>
   );
 }

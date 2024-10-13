@@ -1,5 +1,6 @@
-'use client';
+"use client";
 
+import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +10,8 @@ import msg from "../assets/Messages.png";
 import calendar from '../assets/Frame.png';
 import day from '../assets/Frame(1).png';
 import others from '../assets/Library.png';
+import linlin from '../assets/Botão Linlin.png';
+import linlinacenando from '../assets/Imagem do WhatsApp de 2024-10-12 à(s) 21.44.46_d3d5c1b9.jpg';
 
 
 const FooterWrapper = styled.footer`
@@ -35,38 +38,69 @@ const IconWrapper = styled.div<{ active: boolean }>`
   }
 `;
 
+
+const FloatingButton = styled.div`
+  position: fixed;
+  bottom: 120px; 
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export default function Footer() {
   const pathname = usePathname(); 
+  const [isLilacendo, setLilacendo] = useState(false); 
 
   const isActive = (path: string) => pathname === path;
 
+  const handleClick = () => {
+    setLilacendo(true); 
+    setTimeout(() => setLilacendo(false), 3000); 
+  };
+
   return (
-    <FooterWrapper>
-      <Link href="/" passHref>
-        <IconWrapper active={isActive("/")}>
-          <Image src={home} alt="Home" width={30} height={30} />
-        </IconWrapper>
-      </Link>
-      <Link href="/teste" passHref>
-        <IconWrapper active={isActive("/messages")}>
-          <Image src={msg} alt="Messages" width={30} height={30} />
-        </IconWrapper>
-      </Link>
-      <Link href="/teste" passHref>
-        <IconWrapper active={isActive("/calendar")}>
-          <Image src={calendar} alt="Calendar" width={30} height={30} />
-        </IconWrapper>
-      </Link>
-      <Link href="/teste" passHref>
-        <IconWrapper active={isActive("/day")}>
-          <Image src={day} alt="Day" width={30} height={30} />
-        </IconWrapper>
-      </Link>
-      <Link href="/teste" passHref>
-        <IconWrapper active={isActive("/library")}>
-          <Image src={others} alt="Library" width={30} height={30} />
-        </IconWrapper>
-      </Link>
-    </FooterWrapper>
+    <>
+     
+      <FloatingButton onClick={handleClick}>
+        <Image 
+          src={isLilacendo ? linlinacenando : linlin} 
+          alt="Lilin" 
+          width={107} 
+          height={160} 
+        />
+      </FloatingButton>
+
+      <FooterWrapper>
+        <Link href="/" passHref>
+          <IconWrapper active={isActive("/")}>
+            <Image src={home} alt="Home" width={30} height={30} />
+          </IconWrapper>
+        </Link>
+        <Link href="/teste" passHref>
+          <IconWrapper active={isActive("/messages")}>
+            <Image src={msg} alt="Messages" width={30} height={30} />
+          </IconWrapper>
+        </Link>
+        <Link href="/teste" passHref>
+          <IconWrapper active={isActive("/calendar")}>
+            <Image src={calendar} alt="Calendar" width={30} height={30} />
+          </IconWrapper>
+        </Link>
+        <Link href="/teste" passHref>
+          <IconWrapper active={isActive("/day")}>
+            <Image src={day} alt="Day" width={30} height={30} />
+          </IconWrapper>
+        </Link>
+        <Link href="/teste" passHref>
+          <IconWrapper active={isActive("/library")}>
+            <Image src={others} alt="Library" width={30} height={30} />
+          </IconWrapper>
+        </Link>
+      </FooterWrapper>
+    </>
   );
 }
